@@ -1,0 +1,30 @@
+[package]
+name = "druto-session"
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+rust-version = "1.95"
+description = "Multi-driver HTTP session management, flash data, and session fixation defense for Druto"
+repository = "https://github.com/druto-rs/session"
+readme = "README.md"
+keywords = ["session", "http", "druto", "cookies", "flash"]
+categories = ["web-programming::http-server"]
+
+[features]
+default = []
+redis = ["dep:redis"]
+
+[dependencies]
+base64 = "0.23.1"
+chirkut = { git = "https://github.com/Hitarashi/chirkut.git", branch = "main" }
+dhap = { git = "https://github.com/Hitarashi/dhap.git", branch = "main" }
+getrandom = "0.4.3"
+gopon = { git = "https://github.com/Hitarashi/gopon.git", branch = "main" }
+redis = { package = "druto-redis", git = "https://github.com/druto-rs/redis.git", branch = "main", optional = true }
+serde = { version = "1.0.229", default-features = false, features = ["derive", "alloc"] }
+serde_json = "1.0.154"
+time = { version = "0.3.55", default-features = false, features = ["std", "formatting", "parsing"] }
+
+[dev-dependencies]
+proptest = "1.12.0"
+redis = { package = "druto-redis", git = "https://github.com/druto-rs/redis.git", branch = "main" }

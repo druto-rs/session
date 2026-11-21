@@ -1,0 +1,10 @@
+[toolchain]
+# Nightly is never the default: only `just fmt` needs it, and only because the
+# import options in rustfmt.toml are nightly-only.
+channel = "stable"
+components = [
+    "rustfmt",
+    "clippy",
+    "llvm-tools",   # cargo llvm-cov
+    "rust-src",     # rust-analyzer
+]
